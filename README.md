@@ -1,6 +1,6 @@
 # 16Games
 
-Recreation of old well known games using DoaEngine. Inspired by (**FamTrinli's __"Let's make 16 games in C++/SFML!"__ playlist**)[https://www.youtube.com/playlist?list=PLB_ibvUSN7mzUffhiay5g5GUHyJRO4DYr]
+Recreation of old well known games using DoaEngine. Inspired by [**FamTrinli's __"Let's make 16 games in C++/SFML!"__ playlist**](https://www.youtube.com/playlist?list=PLB_ibvUSN7mzUffhiay5g5GUHyJRO4DYr).
 
 ## Games included inside 16Games:
   * Tetris
@@ -22,7 +22,7 @@ Recreation of old well known games using DoaEngine. Inspired by (**FamTrinli's _
   * Asteroids
   
 ## Dependencies
-  * DoaEngine
+  * [DoaEngine](https://github.com/aeris170/DoaEngine)
   
 ## Screenshots
 **TO BE ADDED AS SOON AS POSSIBLE**
