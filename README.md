@@ -2,6 +2,9 @@
 
 Recreation of old well known games using DoaEngine. Inspired by [**FamTrinli's __"Let's make 16 games in C++/SFML!"__ playlist**](https://www.youtube.com/playlist?list=PLB_ibvUSN7mzUffhiay5g5GUHyJRO4DYr).
 
+## Dependencies
+  * [DoaEngine](https://github.com/aeris170/DoaEngine)
+
 ## Games included inside 16Games:
   * Tetris
   * Doodle Jump
@@ -20,9 +23,6 @@ Recreation of old well known games using DoaEngine. Inspired by [**FamTrinli's _
   * Tic-Tac-Toe
   * Blobby Volley
   * Asteroids
-  
-## Dependencies
-  * [DoaEngine](https://github.com/aeris170/DoaEngine)
-  
+
 ## Screenshots
 **TO BE ADDED AS SOON AS POSSIBLE**
