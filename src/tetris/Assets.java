@@ -15,12 +15,12 @@ public final class Assets {
 
 	public static void initializeAssets() {
 		try {
-			DoaSprites.createSprite("background", "/background.png");
-			DoaSprites.createSprite("frame", "/frame.png");
+			DoaSprites.createSprite("background", "/tetris/background.png");
+			DoaSprites.createSprite("frame", "/tetris/frame.png");
 			for (int i = 0; i < 8; i++) {
-				DoaSprites.createSpriteFromSpriteSheet("" + i, "/tiles.png", new Rectangle(i * 18, 0, 18, 18));
+				DoaSprites.createSpriteFromSpriteSheet("" + i, "/tetris/tiles.png", new Rectangle(i * 18, 0, 18, 18));
 			}
-			DoaSounds.createSoundClip("tetrisMusic", "/tetris.wav");
+			DoaSounds.createSoundClip("tetrisMusic", "/tetris/tetris.wav");
 		} catch (final IOException | UnsupportedAudioFileException | LineUnavailableException ex) {
 			ex.printStackTrace();
 		}
