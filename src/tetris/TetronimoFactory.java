@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import com.doa.engine.DoaHandler;
+
 public final class TetronimoFactory {
 
 	private static int counter = 0;
@@ -31,6 +33,6 @@ public final class TetronimoFactory {
 	}
 
 	private static Tetronimo createRandomTetronimo(final int figureIndex, final int textureIndex, final int x) {
-		return new Tetronimo(figureIndex, textureIndex, x);
+		return DoaHandler.instantiateDoaObject(Tetronimo.class, figureIndex, textureIndex, x);
 	}
 }

@@ -21,8 +21,8 @@ public final class Assets {
 			DoaSprites.createSprite("car3", "/carracing/car3.png");
 			DoaSprites.createSprite("car4", "/carracing/car4.png");
 			DoaSprites.createSprite("car5", "/carracing/car5.png");
-			DoaSounds.createSoundClip("carRacingMusic", "/carracing/carracingsound.wav");
-		} catch (IOException | UnsupportedAudioFileException | LineUnavailableException ex) {
+			// DoaSounds.createSoundClip("carRacingMusic", "/carracing/carracingsound.wav");
+		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
 	}

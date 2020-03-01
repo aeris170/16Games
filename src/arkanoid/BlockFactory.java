@@ -35,7 +35,7 @@ public class BlockFactory extends DoaObject {
 		float hue = randomFloat - (int) randomFloat;
 		DoaLights.ambientLight(Color.getHSBColor(hue, 1f, 1f));
 		for (int i = 0; i < 13; i++) {
-			for (int j = 12; j >= 12 - level; j--) {
+			for (int j = 12; j >= 3 - level; j--) {
 				BLOCKS.add(DoaHandler.instantiateDoaObject(Block.class, 25f + i * 43, 30f + j * 20, DoaSprites.get("block")));
 			}
 		}

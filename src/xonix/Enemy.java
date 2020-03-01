@@ -28,6 +28,7 @@ public class Enemy extends DoaObject {
 		super(x, y, width, height, DoaObject.FRONT);
 		velocity = new DoaVectorF(BASE_SPEED - (float) Math.random() * RANDOMNESS, BASE_SPEED - (float) Math.random() * RANDOMNESS);
 		deltaAngle = velocity.normSquared() / 70;
+		velocity.mul(0.2f);
 		ALL_ENEMIES.add(this);
 	}
 

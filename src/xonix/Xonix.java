@@ -55,7 +55,7 @@ public final class Xonix {
 		Dimension actualSize = w.getContentPane().getSize();
 		int extraW = WINDOW_WIDTH - actualSize.width;
 		int extraH = WINDOW_HEIGHT - actualSize.height;
-		w.setSize(WINDOW_WIDTH + extraW - 10, WINDOW_HEIGHT + extraH - 10);
+		w.setSize(WINDOW_WIDTH + extraW, WINDOW_HEIGHT + extraH);
 		w.setLocation(100, 60);
 		w.setResizable(false);
 		w.add(e);

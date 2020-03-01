@@ -41,6 +41,9 @@ public class Tile extends DoaObject {
 	@Override
 	public void tick() {
 		if (animationIsNotPlaying) {
+			if (getBounds().contains(DoaMouse.X, DoaMouse.Y) && DoaMouse.MB3) {
+				type = GemType.RED;
+			}
 			if (getBounds().contains(DoaMouse.X, DoaMouse.Y) && DoaMouse.MB1) {
 				if (previouslySelectedTile == null) {
 					previouslySelectedTile = this;
@@ -90,8 +93,8 @@ public class Tile extends DoaObject {
 				g.drawAnimation(DoaAnimations.get(type.toString()), position.x + Bejeweled.PADDING, position.y + Bejeweled.PADDING, width - Bejeweled.PADDING * 2f,
 				        height - Bejeweled.PADDING * 2f);
 			} else {
-				g.drawImage(DoaAnimations.get(type.toString()).getFrames().get(0), position.x + Bejeweled.PADDING, position.y + Bejeweled.PADDING,
-				        width - Bejeweled.PADDING * 2f, height - Bejeweled.PADDING * 2f);
+				g.drawImage(DoaAnimations.get(type.toString()).getFrames().get(0), position.x + Bejeweled.PADDING, position.y + Bejeweled.PADDING, width - Bejeweled.PADDING * 2f,
+				        height - Bejeweled.PADDING * 2f);
 			}
 		}
 		if (previouslySelectedTile == this) {
@@ -261,25 +264,22 @@ public class Tile extends DoaObject {
 
 	private Tile left() {
 		return (Tile) DoaHandler.getGameObjects().stream()
-		        .filter(tile -> tile.getPosition().y == position.y && tile.getPosition().x == position.x - Bejeweled.BLOCK_SIZE - Bejeweled.MARGIN).findFirst()
-		        .orElse(null);
+		        .filter(tile -> tile.getPosition().y == position.y && tile.getPosition().x == position.x - Bejeweled.BLOCK_SIZE - Bejeweled.MARGIN).findFirst().orElse(null);
 	}
 
 	private Tile right() {
 		return (Tile) DoaHandler.getGameObjects().stream()
-		        .filter(tile -> tile.getPosition().y == position.y && tile.getPosition().x == position.x + Bejeweled.BLOCK_SIZE + Bejeweled.MARGIN).findFirst()
-		        .orElse(null);
+		        .filter(tile -> tile.getPosition().y == position.y && tile.getPosition().x == position.x + Bejeweled.BLOCK_SIZE + Bejeweled.MARGIN).findFirst().orElse(null);
 	}
 
 	private Tile up() {
-		return (Tile) DoaHandler.getGameObjects().stream().filter(
-		        tile -> tile.getPosition().y > 0 && tile.getPosition().x == position.x && tile.getPosition().y == position.y - Bejeweled.BLOCK_SIZE - Bejeweled.MARGIN)
+		return (Tile) DoaHandler.getGameObjects().stream()
+		        .filter(tile -> tile.getPosition().y > 0 && tile.getPosition().x == position.x && tile.getPosition().y == position.y - Bejeweled.BLOCK_SIZE - Bejeweled.MARGIN)
 		        .findFirst().orElse(null);
 	}
 
 	private Tile down() {
 		return (Tile) DoaHandler.getGameObjects().stream()
-		        .filter(tile -> tile.getPosition().x == position.x && tile.getPosition().y == position.y + Bejeweled.BLOCK_SIZE + Bejeweled.MARGIN).findFirst()
-		        .orElse(null);
+		        .filter(tile -> tile.getPosition().x == position.x && tile.getPosition().y == position.y + Bejeweled.BLOCK_SIZE + Bejeweled.MARGIN).findFirst().orElse(null);
 	}
 }

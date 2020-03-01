@@ -3,7 +3,6 @@ package carracing;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 
-import javax.sound.sampled.Clip;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -25,10 +24,9 @@ public final class CarRacing {
 	static DoaWindow w;
 
 	public static void main(String[] args) {
-		DoaEngine.TICK_RATE = 120;
+		DoaEngine.TICK_RATE = 60;
 		Assets.configureAssets();
 		DoaSounds.setGlobalVolume(0.1f);
-		DoaSounds.get("carRacingMusic").loop(Clip.LOOP_CONTINUOUSLY);
 		setUpGame(6);
 		e = new DoaEngine();
 		w = DoaWindow.createWindow();
@@ -50,7 +48,7 @@ public final class CarRacing {
 		Dimension actualSize = w.getContentPane().getSize();
 		int extraW = WINDOW_WIDTH - actualSize.width;
 		int extraH = WINDOW_HEIGHT - actualSize.height;
-		w.setSize(WINDOW_WIDTH + extraW - 10, WINDOW_HEIGHT + extraH - 10);
+		w.setSize(WINDOW_WIDTH + extraW, WINDOW_HEIGHT + extraH);
 		w.setLocation(100, 60);
 		w.setResizable(false);
 		w.add(e);
@@ -61,8 +59,7 @@ public final class CarRacing {
 		Car.ALL_CARS.clear();
 		Car.COUNT = 0;
 		for (int i = 0; i < carCount; i++) {
-			DoaHandler.instantiateDoaObject(Car.class, 300f + i * 50, 1700f + i * 80, DoaSprites.get("car0").getWidth(), DoaSprites.get("car0").getHeight(),
-			        4f + i * 0.5f, i == 0);
+			DoaHandler.instantiateDoaObject(Car.class, 300f + i * 50, 1700f + i * 80, DoaSprites.get("car0").getWidth(), DoaSprites.get("car0").getHeight(), 4f * 0.5f, i == 0);
 		}
 		DoaHandler.instantiateDoaObject(Level.class);
 		DoaCamera.adjustCamera(Car.ALL_CARS.get(0), 0, 0, DoaSprites.get("background").getWidth() * 2, DoaSprites.get("background").getHeight() * 2);

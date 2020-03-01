@@ -19,7 +19,7 @@ public class Tile extends DoaObject {
 
 	public static final List<Tile> ALL_TILES = new ArrayList<>();
 
-	private static int animationFrameCount = 64;
+	private static int animationFrameCount = 2;
 	private static DoaTaskGuard animationGuard = new DoaTaskGuard(true);
 
 	private int number;
@@ -50,12 +50,10 @@ public class Tile extends DoaObject {
 	public static void setMoveables(Tile zeroTile) {
 		ALL_TILES.forEach(tile -> tile.isMoveable = false);
 		zeroTile.isMoveable = true;
-		Tile up = ALL_TILES.stream().filter(tile -> tile.position.x == zeroTile.position.x && tile.position.y == zeroTile.position.y - zeroTile.height).findAny()
-		        .orElse(zeroTile);
+		Tile up = ALL_TILES.stream().filter(tile -> tile.position.x == zeroTile.position.x && tile.position.y == zeroTile.position.y - zeroTile.height).findAny().orElse(zeroTile);
 		Tile down = ALL_TILES.stream().filter(tile -> tile.position.x == zeroTile.position.x && tile.position.y == zeroTile.position.y + zeroTile.height).findAny()
 		        .orElse(zeroTile);
-		Tile left = ALL_TILES.stream().filter(tile -> tile.position.y == zeroTile.position.y && tile.position.x == zeroTile.position.x - zeroTile.width).findAny()
-		        .orElse(zeroTile);
+		Tile left = ALL_TILES.stream().filter(tile -> tile.position.y == zeroTile.position.y && tile.position.x == zeroTile.position.x - zeroTile.width).findAny().orElse(zeroTile);
 		Tile right = ALL_TILES.stream().filter(tile -> tile.position.y == zeroTile.position.y && tile.position.x == zeroTile.position.x + zeroTile.width).findAny()
 		        .orElse(zeroTile);
 		up.isMoveable = true;

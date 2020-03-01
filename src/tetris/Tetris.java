@@ -14,6 +14,8 @@ import com.doa.engine.DoaHandler;
 import com.doa.engine.DoaWindow;
 import com.doa.engine.sound.DoaSounds;
 
+import connectorgui.Main;
+
 public class Tetris {
 
 	public static final int WINDOW_WIDTH = 640;
@@ -28,9 +30,9 @@ public class Tetris {
 		DoaSounds.get("tetrisMusic").loop(Clip.LOOP_CONTINUOUSLY);
 		DoaHandler.instantiateDoaObject(Level.class, 0f, 0f, WINDOW_WIDTH, WINDOW_HEIGHT);
 		DoaHandler.instantiateDoaObject(GameField.class);
-		w = DoaWindow.createWindow();
-		e = new DoaEngine();
-		SwingUtilities.invokeLater(() -> configureGUI());
+		w = DoaWindow.getInstance();
+		e = DoaEngine.getInstance();
+		SwingUtilities.invokeLater(Tetris::configureGUI);
 		TetronimoFactory.createRandomTetronimo();
 	}
 
@@ -48,18 +50,22 @@ public class Tetris {
 		});
 		optionMenu.add(restartGameItem);
 		JMenuItem backToAllGameItem = new JMenuItem("Back To All Games", KeyEvent.VK_B);
+		backToAllGameItem.addActionListener(e -> {
+			DoaHandler.clear();
+			w.removeAll();
+			Main.createAndShowGUI();
+		});
 		optionMenu.add(backToAllGameItem);
 		w.setJMenuBar(menuBar);
-
 		w.setTitle("Java Tetris!");
 		w.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-		w.setVisible(true);
 		Dimension actualSize = w.getContentPane().getSize();
 		int extraW = WINDOW_WIDTH - actualSize.width;
 		int extraH = WINDOW_HEIGHT - actualSize.height;
-		w.setSize(WINDOW_WIDTH + extraW - 10, WINDOW_HEIGHT + extraH - 10);
+		w.getContentPane().setSize(new Dimension(WINDOW_WIDTH + extraW - 10, WINDOW_HEIGHT + extraH - 10));
 		w.setLocation(100, 60);
 		w.setResizable(false);
+		w.setVisible(true);
 		w.add(e);
 	}
 }

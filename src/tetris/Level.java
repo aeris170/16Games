@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Shape;
 
+import com.doa.engine.DoaHandler;
 import com.doa.engine.DoaObject;
 import com.doa.engine.graphics.DoaGraphicsContext;
 import com.doa.engine.graphics.DoaSprites;
@@ -41,6 +42,7 @@ public class Level extends DoaObject {
 
 		public Frame(float x, float y, int width, int height) {
 			super(x, y, width, height, DoaObject.FRONT);
+			DoaHandler.add(this);
 		}
 
 		@Override
